@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.List;
 
 @SpringBootApplication
-public class CqrsApplication implements CommandLineRunner {
+public class CqrsApplication {
 
     @Autowired
     UserRepository userRepository;
@@ -24,7 +24,6 @@ public class CqrsApplication implements CommandLineRunner {
         SpringApplication.run(CqrsApplication.class, args);
     }
 
-    @Override
     public void run(String... args) throws Exception {
         List<UserEntity> userEntityList = userRepository.findAll();
         System.out.println(UserEntityHelper.toDomains(userEntityList));
