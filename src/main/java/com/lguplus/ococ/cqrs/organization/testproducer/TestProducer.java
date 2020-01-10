@@ -1,6 +1,6 @@
-package com.lguplus.ococ.cqrs.testproducer;
+package com.lguplus.ococ.cqrs.organization.testproducer;
 
-import com.lguplus.ococ.cqrs.vo.OrganizationVO;
+import com.lguplus.ococ.cqrs.organization.vo.OrganizationVO;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;

@@ -1,7 +1,7 @@
-package com.lguplus.ococ.cqrs.vo;
+package com.lguplus.ococ.cqrs.organization.vo;
 
-import com.lguplus.ococ.cqrs.domain.Org;
-import com.lguplus.ococ.cqrs.domain.User;
+import com.lguplus.ococ.cqrs.organization.domain.Org;
+import com.lguplus.ococ.cqrs.organization.domain.User;
 import lombok.*;
 
 import java.util.HashSet;
@@ -27,6 +27,7 @@ public class UserVO {
         userVO.getOrgs().stream().forEach( organization -> {
             Org org = new Org();
             org.setOrgCd(organization);
+            user.getOrgSet().add(org);
         });
         return user;
     }

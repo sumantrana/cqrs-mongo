@@ -1,4 +1,4 @@
-package com.lguplus.ococ.cqrs.model;
+package com.lguplus.ococ.cqrs.organization.model;
 
 
 import lombok.*;

@@ -1,4 +1,4 @@
-package com.lguplus.ococ.cqrs.model;
+package com.lguplus.ococ.cqrs.organization.domain;
 
 import lombok.*;
 
@@ -11,9 +11,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @Builder
-@Entity
-@Table(name="TB_USER")
-public class UserEntity {
+public class User {
     @Id
     String userId;
     String userNm;
@@ -24,7 +22,7 @@ public class UserEntity {
             name = "TB_ORG_USERS",
             joinColumns = @JoinColumn(name = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "ORG_CD"))
-    Set<OrgEntity> orgEntitySet;
+    Set<Org> orgSet;
 
     public String toString(){
         StringBuilder stringBuilder = new StringBuilder();
@@ -33,7 +31,7 @@ public class UserEntity {
         stringBuilder.append("UserName: ").append(this.userNm).append(",");
         stringBuilder.append("Active: ").append(this.acv).append(",");
         stringBuilder.append("[ ");
-        String orgString = orgEntitySet.stream().map(orgEntity -> "OrgName: " + orgEntity.getOrgNm() ).collect(Collectors.joining(","));
+        String orgString = orgSet.stream().map( org -> "OrgName: " + org.getOrgNm() ).collect(Collectors.joining(","));
         stringBuilder.append(orgString);
         stringBuilder.append(" ]");
         return stringBuilder.toString();

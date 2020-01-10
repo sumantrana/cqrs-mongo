@@ -1,4 +1,4 @@
-package com.lguplus.ococ.cqrs.vo;
+package com.lguplus.ococ.cqrs.organization.vo;
 
 public class OrganizationVOHelper {
     public static final String VO_TYPE_USER = "UserVO";

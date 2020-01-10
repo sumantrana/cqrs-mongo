@@ -1,11 +1,12 @@
 package com.lguplus.ococ.cqrs;
 
-import com.lguplus.ococ.cqrs.model.OrgEntity;
-import com.lguplus.ococ.cqrs.model.OrgEntityHelper;
-import com.lguplus.ococ.cqrs.model.UserEntity;
-import com.lguplus.ococ.cqrs.model.UserEntityHelper;
+import com.lguplus.ococ.cqrs.organization.model.OrgEntity;
+import com.lguplus.ococ.cqrs.organization.model.OrgEntityHelper;
+import com.lguplus.ococ.cqrs.organization.model.UserEntity;
+import com.lguplus.ococ.cqrs.organization.model.UserEntityHelper;
+import com.lguplus.ococ.cqrs.organization.repository.OrgRepository;
+import com.lguplus.ococ.cqrs.organization.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

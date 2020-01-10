@@ -1,4 +1,4 @@
-package com.lguplus.ococ.cqrs.domain;
+package com.lguplus.ococ.cqrs.organization.domain;
 
 
 import lombok.*;

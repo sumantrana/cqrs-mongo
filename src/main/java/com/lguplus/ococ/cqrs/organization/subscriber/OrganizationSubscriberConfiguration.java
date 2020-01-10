@@ -1,6 +1,6 @@
-package com.lguplus.ococ.cqrs.subscriber;
+package com.lguplus.ococ.cqrs.organization.subscriber;
 
-import com.lguplus.ococ.cqrs.vo.OrganizationVO;
+import com.lguplus.ococ.cqrs.organization.vo.OrganizationVO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;

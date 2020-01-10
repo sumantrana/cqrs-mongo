@@ -1,8 +1,7 @@
-package com.lguplus.ococ.cqrs.model;
+package com.lguplus.ococ.cqrs.organization.model;
 
-import com.lguplus.ococ.cqrs.domain.Org;
-import com.lguplus.ococ.cqrs.domain.User;
-import com.lguplus.ococ.cqrs.domain.User;
+import com.lguplus.ococ.cqrs.organization.domain.Org;
+import com.lguplus.ococ.cqrs.organization.domain.User;
 
 import java.util.HashSet;
 import java.util.List;
@@ -17,14 +16,16 @@ public class UserEntityHelper {
         userEntity.setUserId(user.getUserId());
         userEntity.setUserNm(user.getUserNm());
         userEntity.setOrgEntitySet(new HashSet<>());
-        user.getOrgSet().stream().forEach( org -> {
-            OrgEntity orgEntity = OrgEntity.builder().build();
-            orgEntity.setAcv(org.getAcv());
-            orgEntity.setOrgCd(org.getOrgCd());
-            orgEntity.setOrgNm(org.getOrgNm());
-            orgEntity.setPrenOrgCd(org.getPrenOrgCd());
-            userEntity.getOrgEntitySet().add(orgEntity);
-        });
+        if ( user.getOrgSet() != null ) {
+            user.getOrgSet().stream().forEach(org -> {
+                OrgEntity orgEntity = OrgEntity.builder().build();
+                orgEntity.setAcv(org.getAcv());
+                orgEntity.setOrgCd(org.getOrgCd());
+                orgEntity.setOrgNm(org.getOrgNm());
+                orgEntity.setPrenOrgCd(org.getPrenOrgCd());
+                userEntity.getOrgEntitySet().add(orgEntity);
+            });
+        }
 
         return userEntity;
     }
@@ -36,14 +37,16 @@ public class UserEntityHelper {
         user.setUserNm(userEntity.getUserNm());
         user.setUserId(userEntity.getUserId());
         user.setOrgSet(new HashSet<>());
-        userEntity.getOrgEntitySet().stream().forEach( orgEntity -> {
-            Org org = Org.builder().build();
-            org.setAcv(orgEntity.getAcv());
-            org.setOrgCd(orgEntity.getOrgCd());
-            org.setOrgNm(orgEntity.getOrgNm());
-            org.setPrenOrgCd(orgEntity.getPrenOrgCd());
-            user.getOrgSet().add(org);
-        });
+        if ( userEntity.getOrgEntitySet() != null ) {
+            userEntity.getOrgEntitySet().stream().forEach(orgEntity -> {
+                Org org = Org.builder().build();
+                org.setAcv(orgEntity.getAcv());
+                org.setOrgCd(orgEntity.getOrgCd());
+                org.setOrgNm(orgEntity.getOrgNm());
+                org.setPrenOrgCd(orgEntity.getPrenOrgCd());
+                user.getOrgSet().add(org);
+            });
+        }
 
         return user;
     }
