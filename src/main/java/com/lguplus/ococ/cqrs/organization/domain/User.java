@@ -2,7 +2,6 @@ package com.lguplus.ococ.cqrs.organization.domain;
 
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -12,16 +11,11 @@ import java.util.stream.Collectors;
 @Setter
 @Builder
 public class User {
-    @Id
     String userId;
     String userNm;
     String acv;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "TB_ORG_USERS",
-            joinColumns = @JoinColumn(name = "USER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "ORG_CD"))
+
     Set<Org> orgSet;
 
     public String toString(){

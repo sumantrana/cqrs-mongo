@@ -3,7 +3,6 @@ package com.lguplus.ococ.cqrs.organization.domain;
 
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -13,13 +12,12 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 public class Org {
-    @Id
+
     String orgCd;
     String orgNm;
     String acv;
     String prenOrgCd;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "orgSet")
     Set<User> userSet;
 
     public String toString(){

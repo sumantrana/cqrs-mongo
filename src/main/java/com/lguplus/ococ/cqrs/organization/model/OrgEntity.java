@@ -3,25 +3,29 @@ package com.lguplus.ococ.cqrs.organization.model;
 
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Getter
 @Setter
-@Entity
-@Table(name="TB_ORG")
+@Document(collection = "Org")
 public class OrgEntity {
+
     @Id
     String orgCd;
     String orgNm;
     String acv;
     String prenOrgCd;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "orgEntitySet")
+    @DBRef(lazy = true)
     Set<UserEntity> userEntitySet;
 
     public String toString(){
